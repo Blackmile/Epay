@@ -4,6 +4,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
 import SignInScreen from './src/screens/SignInScreen';
 import HomeScreen from './src/screens/HomeScreen';
+import { useState } from 'react';
 
 const Stack = createNativeStackNavigator();
 
@@ -23,12 +24,20 @@ const MainStack = () => {
   )
 }
 
+const RootNavigation = () => {
+
+  const [currUser, setCurrUser] = useState(false)
+
+  return (
+    <NavigationContainer>
+      <>{currUser ? <MainStack /> : <SignUpStack />}</>
+    </NavigationContainer>
+  )
+}
+
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <RootNavigation />
   );
 }
 
