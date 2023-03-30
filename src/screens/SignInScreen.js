@@ -1,6 +1,7 @@
-import { Button, ImageBackground, StyleSheet, Text, View } from 'react-native'
+import { Button, ImageBackground, StyleSheet, Text, View, TouchableOpacity  } from 'react-native'
 import React, { useState } from 'react'
-import { TextInput, TouchableOpacity } from 'react-native-gesture-handler'
+import { TextInput} from 'react-native-gesture-handler'
+import backgroundImg from '../../assets/splash-bg.jpg'
 
 const SignInScreen = () => {
 
@@ -47,7 +48,7 @@ const SignInScreen = () => {
   }
 
   return (
-    <ImageBackground style={styles.backgroundImg} source={backgroundImg} blurRadius={3}>
+    <ImageBackground style={styles.backgroundImg} source={backgroundImg} blurRadius={20}>
     <View style={styles.container}>
       <Text style={styles.welcomeText}>
         {mode === 'Sign In' ? 'Login into your account' : 'Create a new account'}
