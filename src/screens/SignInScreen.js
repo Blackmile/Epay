@@ -2,6 +2,7 @@ import { Button, ImageBackground, StyleSheet, Text, View, TouchableOpacity  } fr
 import React, { useState } from 'react'
 import { TextInput} from 'react-native-gesture-handler'
 import backgroundImg from '../../assets/splash-bg.jpg'
+import { signIn, signUp } from '../utils/firebase'
 
 const SignInScreen = () => {
 
@@ -49,48 +50,48 @@ const SignInScreen = () => {
 
   return (
     <ImageBackground style={styles.backgroundImg} source={backgroundImg} blurRadius={20}>
-    <View style={styles.container}>
-      <Text style={styles.welcomeText}>
-        {mode === 'Sign In' ? 'Login into your account' : 'Create a new account'}
-      </Text>
-      <View style={{marginTop: 20}}>
-      <TextInput
-          placeholder='Enter Email'
-          value={email}
-          onChangeText={setEmail} 
-          style={styles.textInput}
-      />
-      <TextInput
-          placeholder='Enter Password'
-          value={password}
-          onChangeText={setPassword}
-          secureTextEntry={true} 
-          style={styles.textInput}
-      />
-      {displayCheckPass}
-      <View style={{marginTop: 20}}>
-        <TouchableOpacity>
-          <Button 
-            title='Submit' 
-            color='black'
-            onPress={Submit}
-            disabled={!email || !password}
-            />
+      <View style={styles.container}>
+        <Text style={styles.welcomeText}>
+          {mode === 'Sign In' ? 'Login into your account' : 'Create a new account'}
+        </Text>
+        <View style={{marginTop: 20}}>
+        <TextInput
+            placeholder='Enter Email'
+            value={email}
+            onChangeText={setEmail} 
+            style={styles.textInput}
+        />
+        <TextInput
+            placeholder='Enter Password'
+            value={password}
+            onChangeText={setPassword}
+            secureTextEntry={true} 
+            style={styles.textInput}
+        />
+        {displayCheckPass}
+        <View style={{marginTop: 20}}>
+          <TouchableOpacity>
+            <Button 
+              title='Submit' 
+              color='black'
+              onPress={Submit}
+              disabled={!email || !password}
+              />
+            </TouchableOpacity>
+          </View>
+          <TouchableOpacity
+            style={{ marginTop: 15 }}
+            onPress={handleMode}
+          >
+            <Text>
+              {mode === "Sign In"
+                ? "Don't have an account? Sign Up"
+                : "Already have an account? Sign in"}
+            </Text>
           </TouchableOpacity>
         </View>
-        <TouchableOpacity
-          style={{ marginTop: 15 }}
-          onPress={handleMode}
-        >
-          <Text>
-            {mode === "Sign In"
-              ? "Don't have an account? Sign Up"
-              : "Already have an account? Sign in"}
-          </Text>
-        </TouchableOpacity>
       </View>
-    </View>
-  </ImageBackground>
+    </ImageBackground>
   )
 }
 
