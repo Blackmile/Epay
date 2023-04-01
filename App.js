@@ -4,7 +4,8 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
 import SignInScreen from './src/screens/SignInScreen';
 import HomeScreen from './src/screens/HomeScreen';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { auth } from './src/utils/firebase';
 
 const Stack = createNativeStackNavigator();
 
@@ -26,7 +27,11 @@ const MainStack = () => {
 
 const RootNavigation = () => {
 
-  const [currUser, setCurrUser] = useState(false)
+  const [currUser, setCurrUser] = useState(null)
+
+  const userHandler = user => user ? setCurrUser(user) : setCurrUser(null)
+
+  useEffect(() => auth.onAuthStateChanged(user => userHandler(user)), []);
 
   return (
     <NavigationContainer>
