@@ -7,6 +7,8 @@ import HomeScreen from './src/screens/HomeScreen';
 import { useEffect, useState } from 'react';
 import { auth } from './src/utils/firebase';
 
+<StatusBar style='dark' />
+
 const Stack = createNativeStackNavigator();
 
 const SignUpStack = () => {
@@ -20,7 +22,7 @@ const SignUpStack = () => {
 const MainStack = () => {
   return (
     <Stack.Navigator>
-      <Stack.Screen name='Home' component={HomeScreen} />
+      <Stack.Screen name='Home' component={HomeScreen} options={{ headerShown: false }} />
     </Stack.Navigator>
   )
 }
