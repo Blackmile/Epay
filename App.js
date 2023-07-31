@@ -6,6 +6,7 @@ import SignInScreen from './src/screens/SignInScreen';
 import HomeScreen from './src/screens/HomeScreen';
 import { useEffect, useState } from 'react';
 import { auth } from './src/utils/firebase';
+import { SafeAreaProvider } from 'react-native-safe-area-context';
 
 <StatusBar style='dark' />
 
@@ -36,9 +37,11 @@ const RootNavigation = () => {
   useEffect(() => auth.onAuthStateChanged(user => userHandler(user)), []);
 
   return (
-    <NavigationContainer>
-      <>{currUser ? <MainStack /> : <SignUpStack />}</>
-    </NavigationContainer>
+    <SafeAreaProvider>
+      <NavigationContainer style={styles.container} >
+        <>{currUser ? <SignUpStack /> : <MainStack />}</>
+      </NavigationContainer>
+    </SafeAreaProvider>
   )
 }
 
