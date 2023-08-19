@@ -15,8 +15,8 @@ const HomeScreen = () => {
       <View style={ styles.Bal }>
         <Text style={ styles.BalText } > #90,548.80 </Text>
         <View style={ styles.Btns } >
-          <Button />
-          <Button />
+          <Button text='Send' backcolor='rgba(168, 82, 55, 0.55)' onPress={() => console.log('sending')}/>
+          <Button text='Deposit' backcolor='rgba(173, 202, 220, 0.67)' onPress={() => console.log('depositing')} />
         </View>
       </View>
       <View style={ styles.BankOpt } >
@@ -71,11 +71,13 @@ const styles = StyleSheet.create({
   Btns: {
     flex: 1,
     position: 'absolute',
-    backgroundColor: 'rgba(148, 74, 63, 0.31)',
+    // backgroundColor: 'rgba(148, 74, 63, 0.31)',
     padding: 10,
     flexDirection: 'row',
-    marginTop: 100,
+    marginTop: 95,
+    marginLeft: -60,
     justifyContent: 'space-between',
+    width: '100%',
   }
 })
 
