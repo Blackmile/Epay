@@ -5,7 +5,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack'
 import SignInScreen from './src/screens/SignInScreen';
 import HomeScreen from './src/screens/HomeScreen';
 import { useEffect, useState } from 'react';
-import { auth } from './src/utils/firebase';
+import { auth } from './firebase ';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 
 <StatusBar style='dark' />

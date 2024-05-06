@@ -2,7 +2,7 @@ import { Button, ImageBackground, StyleSheet, Text, View, TouchableOpacity  } fr
 import React, { useState } from 'react'
 import { TextInput} from 'react-native-gesture-handler'
 import backgroundImg from '../../assets/splash-bg.jpg'
-import { signIn, signUp } from '../utils/firebase'
+import { signIn, signUp } from '../../firebase'
 
 const SignInScreen = () => {
 
